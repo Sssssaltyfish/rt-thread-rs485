@@ -89,7 +89,7 @@ static void rs485_mode_set(rs485_inst_t *hinst, int mode) // mode : 0--receive m
     {
 #ifdef RS485_USING_DMA_TX
         rt_completion_wait(&(hinst->tx_comp), RS485_TX_COMP_TMO_MAX);
-        rt_thread_mdelay(hinst->tx_dly_ms);//绛夊緟鏈熬鏁版嵁浼犺緭瀹屾垚
+        rt_thread_mdelay(hinst->tx_dly_ms);//等待末尾数据传输完成
 #elif (RS485_SW_DLY_US > 0)
         rt_hw_us_delay(RS485_SW_DLY_US);
 #endif

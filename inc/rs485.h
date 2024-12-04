@@ -16,20 +16,20 @@
 extern "C"
 {
 #endif
-//#define RS485_USING_TEST            //ä½¿ç”¨æµ‹è¯•åŠŸèƒ½
-//#define RS485_USING_SAMPLE_SLAVE    //ä½¿ç”¨ä»æœºç¤ºä¾‹
-//#define RS485_USING_SAMPLE_MASTER   //ä½¿ç”¨ä¸»æœºç¤ºä¾‹
-//#define RS485_USING_DMA_RX          //ä½¿ç”¨DMAæ¥æ”¶
-//#define RS485_USING_INT_TX          //ä½¿ç”¨ä¸­æ–­å‘é€
-//#define RS485_USING_DMA_TX          //ä½¿ç”¨DMAå‘é€
+//#define RS485_USING_TEST            //Ê¹ÓÃ²âÊÔ¹¦ÄÜ
+//#define RS485_USING_SAMPLE_SLAVE    //Ê¹ÓÃ´Ó»úÊ¾Àı
+//#define RS485_USING_SAMPLE_MASTER   //Ê¹ÓÃÖ÷»úÊ¾Àı
+//#define RS485_USING_DMA_RX          //Ê¹ÓÃDMA½ÓÊÕ
+//#define RS485_USING_INT_TX          //Ê¹ÓÃÖĞ¶Ï·¢ËÍ
+//#define RS485_USING_DMA_TX          //Ê¹ÓÃDMA·¢ËÍ
 
 #ifndef RS485_SW_DLY_US
-#define RS485_SW_DLY_US         0    //å‘é€å¼•è„šæ§åˆ¶åˆ‡æ¢å»¶æ—¶
+#define RS485_SW_DLY_US         0    //·¢ËÍÒı½Å¿ØÖÆÇĞ»»ÑÓÊ±
 #endif
 
-#define RS485_TX_COMP_TMO_MAX   (3 * RT_TICK_PER_SECOND)//æœ€å¤§DMAä¼ è¾“å®Œæˆè¶…æ—¶
-#define RS485_BYTE_TMO_MIN      2     //æœ€å°å­—èŠ‚è¶…æ—¶
-#define RS485_BYTE_TMO_MAX      200   //æœ€å¤§å­—èŠ‚è¶…æ—¶
+#define RS485_TX_COMP_TMO_MAX   (3 * RT_TICK_PER_SECOND)//×î´óDMA´«ÊäÍê³É³¬Ê±
+#define RS485_BYTE_TMO_MIN      2     //×îĞ¡×Ö½Ú³¬Ê±
+#define RS485_BYTE_TMO_MAX      200   //×î´ó×Ö½Ú³¬Ê±
 
 typedef struct rs485_inst rs485_inst_t;
 
