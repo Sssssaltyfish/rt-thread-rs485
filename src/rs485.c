@@ -21,7 +21,6 @@
 
 #define RS485_EVT_RX_IND    (1<<0)
 #define RS485_EVT_RX_BREAK  (1<<1)
-#define RS485_EVT_TX_COMP   (1<<2)
 
 struct rs485_inst
 {
