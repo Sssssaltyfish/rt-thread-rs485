@@ -12,14 +12,24 @@
 #define __DRV_RS485_H__
 
 #include <rtconfig.h>
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+//#define RS485_USING_TEST            //使用测试功能
+//#define RS485_USING_SAMPLE_SLAVE    //使用从机示例
+//#define RS485_USING_SAMPLE_MASTER   //使用主机示例
+//#define RS485_USING_DMA_RX          //使用DMA接收
+//#define RS485_USING_INT_TX          //使用中断发送
+//#define RS485_USING_DMA_TX          //使用DMA发送
 
-//#define RS485_USING_TEST
-//#define RS485_USING_SAMPLE_SLAVE
-//#define RS485_USING_SAMPLE_MASTER
+#ifndef RS485_SW_DLY_US
+#define RS485_SW_DLY_US         0    //发送引脚控制切换延时
+#endif
 
-#define RS485_BYTE_TMO_MIN      2
-#define RS485_BYTE_TMO_MAX      200
-#define RS485_SW_DLY_US         10
+#define RS485_TX_COMP_TMO_MAX   (3 * RT_TICK_PER_SECOND)//最大DMA传输完成超时
+#define RS485_BYTE_TMO_MIN      2     //最小字节超时
+#define RS485_BYTE_TMO_MAX      200   //最大字节超时
 
 typedef struct rs485_inst rs485_inst_t;
 
@@ -118,5 +128,8 @@ int rs485_break_recv(rs485_inst_t * hinst);
  */
 int rs485_send_then_recv(rs485_inst_t * hinst, void *send_buf, int send_len, void *recv_buf, int recv_size);
 
+#ifdef __cplusplus
+}
+#endif
 #endif
 
