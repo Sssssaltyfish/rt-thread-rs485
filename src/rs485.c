@@ -8,6 +8,7 @@
  * 2020-12-17     qiyongzhong       fix log tag
  * 2020-12-18     qiyongzhong       add rs485_send_then_recv
  * 2023-09-19     qiyongzhong       add switch delay
+ * 2024-12-05     qiyongzhong       add dma-rx, int-tx, dma-tx
  */
 
 #include <rtthread.h>
