@@ -6,16 +6,22 @@
  * 2020-06-08     qiyongzhong       first version
  * 2020-12-17     qiyongzhong       add sample
  * 2020-12-18     qiyongzhong       add rs485_send_then_recv
+ * 2023-09-19     qiyongzhong       add switch delay
+ * 2024-12-05     qiyongzhong       add dma-rx, int-tx, dma-tx
+ * 2024-12-05     qiyongzhong       add making device
  */
 
-#ifndef __DRV_RS485_H__
-#define __DRV_RS485_H__
+#ifndef __RS485_H__
+#define __RS485_H__
 
 #include <rtconfig.h>
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
+
+//#define RS485_USING_DEV             //使用RS485设备化
 //#define RS485_USING_TEST            //使用测试功能
 //#define RS485_USING_SAMPLE_SLAVE    //使用从机示例
 //#define RS485_USING_SAMPLE_MASTER   //使用主机示例
@@ -24,14 +30,18 @@ extern "C"
 //#define RS485_USING_DMA_TX          //使用DMA发送
 
 #ifndef RS485_SW_DLY_US
-#define RS485_SW_DLY_US         0    //发送引脚控制切换延时
+#define RS485_SW_DLY_US             0    //发送引脚控制切换延时
 #endif
 
-#define RS485_TX_COMP_TMO_MAX   (3 * RT_TICK_PER_SECOND)//最大DMA传输完成超时
-#define RS485_BYTE_TMO_MIN      2     //最小字节超时
-#define RS485_BYTE_TMO_MAX      200   //最大字节超时
+#define RS485_TX_COMP_TMO_MAX       (3 * RT_TICK_PER_SECOND)//最大DMA传输完成超时
+#define RS485_BYTE_TMO_MIN          2     //最小字节超时
+#define RS485_BYTE_TMO_MAX          200   //最大字节超时
 
 typedef struct rs485_inst rs485_inst_t;
+
+#ifdef RS485_USING_DEV
+#include <rs485_dev.h>
+#endif
 
 /* 
  * @brief   create rs485 instance dynamically
@@ -130,6 +140,7 @@ int rs485_send_then_recv(rs485_inst_t * hinst, void *send_buf, int send_len, voi
 
 #ifdef __cplusplus
 }
+
 #endif
 #endif
 

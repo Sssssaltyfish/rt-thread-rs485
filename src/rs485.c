@@ -1,5 +1,5 @@
 /*
- * drv_rs485.c
+ * rs485.c
  *
  * Change Logs:
  * Date           Author            Notes
