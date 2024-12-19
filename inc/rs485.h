@@ -118,7 +118,7 @@ int rs485_recv(rs485_inst_t * hinst, void *buf, int size);
  * @param   size        - length of send datas
  * @retval  >=0 - length of sent datas, <0 - error
  */
-int rs485_send(rs485_inst_t * hinst, void *buf, int size);
+int rs485_send(rs485_inst_t * hinst, const void *buf, int size);
 
 /* 
  * @brief   break rs485 receive wait
