@@ -45,7 +45,7 @@ rs485 package 遵循 LGPLv2.1 许可，详见 `LICENSE` 文件。
 - 参数 ：level--发送模式控制电平
 - 返回 ：成功返回实例指针，失败返回NULL
 
-#### int rs485_destory(rs485_inst_t * hinst);
+#### int rs485_destroy(rs485_inst_t * hinst);
 - 功能 ：销毁rs485实例
 - 参数 ：hinst--rs485实例指针
 - 返回 ：0--成功,其它--失败

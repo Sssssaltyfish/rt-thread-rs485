@@ -216,15 +216,15 @@ rs485_inst_t * rs485_create(const char *name, int baudrate, int parity, int pin,
 }
 
 /*
- * @brief   destory rs485 instance created dynamically
+ * @brief   destroy rs485 instance created dynamically
  * @param   hinst       - instance handle
  * @retval  0 - success, other - error
  */
-int rs485_destory(rs485_inst_t * hinst)
+int rs485_destroy(rs485_inst_t * hinst)
 {
     if (hinst == RT_NULL)
     {
-        LOG_E("rs485 destory fail. hinst is NULL.");
+        LOG_E("rs485 destroy fail. hinst is NULL.");
         return(-RT_ERROR);
     }
 
@@ -244,7 +244,7 @@ int rs485_destory(rs485_inst_t * hinst)
 
     rt_free(hinst);
 
-    LOG_D("rs485 destory success.");
+    LOG_D("rs485 destroy success.");
 
     return(RT_EOK);
 }
@@ -452,6 +452,10 @@ int rs485_recv(rs485_inst_t * hinst, void *buf, int size)
         return(-RT_ERROR);
     }
 
+    // Set to receive mode
+    // The pin is already in receive mode IN THEORY,
+    // but manually setting it would prevent careless errors
+    rs485_mode_set(hinst, 0); 
     while(size)
     {
         int len = rt_device_read(hinst->serial, 0, (char *)buf + recv_len, size);

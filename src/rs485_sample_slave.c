@@ -51,7 +51,7 @@ static void rs485_sample_slave_loopback_test(void *args)
     rs485_set_recv_tmo(hinst, RT_WAITING_FOREVER);
     if (rs485_connect(hinst) != RT_EOK)
     {
-        rs485_destory(hinst);
+        rs485_destroy(hinst);
         LOG_E("rs485 connect fail.");
         return;
     }

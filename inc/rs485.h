@@ -55,11 +55,11 @@ typedef struct rs485_inst rs485_inst_t;
 rs485_inst_t * rs485_create(const char *serial, int baudrate, int parity, int pin, int level);
 
 /* 
- * @brief   destory rs485 instance created dynamically
+ * @brief   destroy rs485 instance created dynamically
  * @param   hinst       - instance handle
  * @retval  0 - success, other - error
  */
-int rs485_destory(rs485_inst_t * hinst);
+int rs485_destroy(rs485_inst_t * hinst);
 
 /* 
  * @brief   config rs485 params 

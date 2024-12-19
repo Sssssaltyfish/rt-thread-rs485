@@ -54,7 +54,7 @@ static void rs485_sample_master(void *args)
     rs485_set_recv_tmo(hinst, 1000);
     if (rs485_connect(hinst) != RT_EOK)
     {
-        rs485_destory(hinst);
+        rs485_destroy(hinst);
         LOG_E("rs485 connect fail.");
         return;
     }
@@ -79,7 +79,7 @@ static void rs485_sample_master(void *args)
         LOG_D("rs485 recv %d datas : %s", len, buf);
     }
     
-    rs485_destory(hinst);
+    rs485_destroy(hinst);
     LOG_D("rs485 test end.");
 }
 
